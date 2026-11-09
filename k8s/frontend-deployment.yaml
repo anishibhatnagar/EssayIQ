@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: essayiq-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: essayiq-frontend
+  template:
+    metadata:
+      labels:
+        app: essayiq-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: essayiq-frontend:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80

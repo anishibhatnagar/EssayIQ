@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: essayiq-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: essayiq-backend
+  template:
+    metadata:
+      labels:
+        app: essayiq-backend
+    spec:
+      containers:
+        - name: backend
+          image: essayiq-backend:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
